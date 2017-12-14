@@ -6,16 +6,8 @@ using System.Web;
 
 namespace Projekt.Models
 {
-    public class Register
+    public class LoginModel
     {
-        [Required]
-        [Display(Name = "Firstname")]
-        public string Firstname { get; set; }
-
-        [Required]
-        [Display(Name = "Lastname")]
-        public string Lastname { get; set; }
-
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -25,15 +17,7 @@ namespace Projekt.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        //[Required]
-        //[DataType(DataType.Password)]
-        //[Display(Name = "Confirm password")]
-       // public string ConfirmPassword { get; set; }
-
-
-     
-
-
-
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
     }
 }

@@ -20,5 +20,11 @@ namespace Database
             datacontext.SaveChanges();
         }
 
+        public User GetPassword(string email, string password)
+        {
+            var user = datacontext.Users.FirstOrDefault(x => x.Email.Equals(email, StringComparison.OrdinalIgnoreCase) &&
+                                                         x.Password.Equals(password, StringComparison.OrdinalIgnoreCase));
+            return user;
+        }
     }
 }

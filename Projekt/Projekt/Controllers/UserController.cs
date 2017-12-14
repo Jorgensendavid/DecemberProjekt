@@ -11,8 +11,13 @@ namespace Projekt.Controllers
 {
     public class UserController : Controller 
     {
-        private DataContext dataContext = new DataContext();
-        private Repositories repositories = new Repositories();
+        
+        private Repositories repositories;
+
+        public UserController()
+        {
+            this.repositories = new Repositories();
+        }
 
 
         [HttpGet]
@@ -39,7 +44,7 @@ namespace Projekt.Controllers
 
                     repositories.addUser(user);
                     repositories.saveUser();
-                    return RedirectToAction("Home", "Home");
+                    return RedirectToAction("About", "Home");
                 }
                 catch
                 {

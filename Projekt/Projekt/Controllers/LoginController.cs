@@ -33,6 +33,8 @@ namespace Projekt.Controllers
                 var emailInput = model.Email;
                 var passwordInput = model.Password;
                 var dBpassword = repositories.GetPassword(model.Email, model.Password);
+
+
                 if (passwordInput == dBpassword.Password)
                 {
                     return RedirectToAction("About", "Home");

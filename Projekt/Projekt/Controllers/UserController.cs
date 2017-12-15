@@ -44,7 +44,7 @@ namespace Projekt.Controllers
 
                     repositories.addUser(user);
                     repositories.saveUser();
-                    return RedirectToAction("About", "Home");
+                    return RedirectToAction("Login", "Login");
                 }
                 catch
                 {

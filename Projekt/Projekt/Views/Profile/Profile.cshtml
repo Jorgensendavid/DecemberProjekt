@@ -1,0 +1,17 @@
+﻿@model Projekt.Models.ProfileModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+@if (Session["UserId"] != null)
+{
+<h2>Profile</h2>
+}
+
+else
+{
+    <p>
+        @Html.ActionLink("Login to see more!", "Login", "Login")
+    </p>
+}

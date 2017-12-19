@@ -25,13 +25,13 @@ namespace Projekt.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        //[Required]
-        //[DataType(DataType.Password)]
-        //[Display(Name = "Confirm password")]
-       // public string ConfirmPassword { get; set; }
+        //[Display(Name = "UserPhoto")]
+       // public byte[] UserPhoto { get; set; }
+
+       
 
 
-     
+
 
 
 

@@ -5,16 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using Database.Entities;
 
 namespace Projekt.Controllers
 {
     public class LoginController : Controller
     {
-        private Repositories repositories;
+        private Repository repositories;
 
         public LoginController()
         {
-            this.repositories = new Repositories();
+            this.repositories = new Repository();
         }
 
         [AllowAnonymous]
@@ -28,24 +30,27 @@ namespace Projekt.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-            try
+            var user = repositories.GetPassword(model.Email, model.Password);
+            
+
+            if (user != null && user.Password == model.Password)
             {
-                var emailInput = model.Email;
-                var passwordInput = model.Password;
-                var dBpassword = repositories.GetPassword(model.Email, model.Password);
-
-
-                if (passwordInput == dBpassword.Password)
-                {
-                    return RedirectToAction("About", "Home");
-                }
-
-                return View(model);
+                Session["UserId"] = user.UserID.ToString();
+                return RedirectToAction("Profile", "Profile");
             }
-            catch
-            {
-                return View(model);
-            }
+
+            ModelState.AddModelError(nameof(model.Password), "Invalid password or username.");
+
+            return View();
         }
+
+        public ActionResult LoggOut()
+        {
+            Session.Abandon();
+            Session.Remove("UserId");
+            return View();
+        }
+
+       
     }
 }

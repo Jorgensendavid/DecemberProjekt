@@ -7,7 +7,7 @@ using Database.Entities;
 
 namespace Database
 {
-    public class Repositories
+    public class Repository
     {
         DataContext datacontext = new DataContext();
         

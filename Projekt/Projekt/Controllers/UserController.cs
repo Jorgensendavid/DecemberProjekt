@@ -12,11 +12,11 @@ namespace Projekt.Controllers
     public class UserController : Controller 
     {
         
-        private Repositories repositories;
+        private Repository repositories;
 
         public UserController()
         {
-            this.repositories = new Repositories();
+            this.repositories = new Repository();
         }
 
 
